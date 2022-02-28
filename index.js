@@ -1,61 +1,73 @@
-const testScope = (scope) => {
-  if (scope === "var") {
-    var functionScope = "どこからでも参照可能!";
-  } else if (scope === "let") {
-    let blockScope = "プロック内のみ参照可能";
-    console.log(blockScope);
+const arr = new Array(1000000).fill(0).map((v, i) => i);
+
+let sum = 0;
+const len = arr.length | 0;
+function addSum(v) {
+  sum += v;
+}
+
+for (let j = 0; j < 5; j++) {
+  sum = 0;
+  console.time("for");
+  for (let i = 0; i < len; i++) {
+    sum += arr[i];
   }
-  console.log(functionScope);
-  // console.log(blockScope);
-};
+  console.timeEnd("for");
+  console.log(sum);
+}
 
-testScope("let");
+for (let i = 0; i < 5; i++) {
+  sum = 0;
+  console.time("for of");
+  for (const v of arr) {
+    sum += v;
+  }
+  console.timeEnd("for of");
+  console.log(sum);
+}
 
-//１ラインはreturnが省略可能
-const user = { id: 1 };
-const getUserName = (userId) => user[userId];
+for (let i = 0; i < 5; i++) {
+  sum = 0;
+  console.time("forEach(arrow)");
+  arr.forEach((v) => {
+    sum += v;
+  });
+  console.timeEnd("forEach(arrow)");
+  console.log(sum);
+}
 
-console.log(getUserName("id"));
+for (let i = 0; i < 5; i++) {
+  sum = 0;
+  console.time("forEach(function)");
+  arr.forEach(addSum);
+  console.timeEnd("forEach(function)");
+  console.log(sum);
+}
 
-//array配列
-const array = [1, 2, 3, 4];
-const arrayResults = array.map((value) => value * 3);
-console.log(arrayResults);
+for (let i = 0; i < 5; i++) {
+  sum = 0;
+  console.time("map(arrow)");
+  arr.map((v) => {
+    sum += v;
+  });
+  console.timeEnd("map(arrow)");
+  console.log(sum);
+}
 
-const object = {
-  hoge: { text: "hogehoge" },
-  foo: { text: "foofoo" },
-  fiz: { text: "fizfiz" },
-};
-console.log(object);
+for (let i = 0; i < 5; i++) {
+  sum = 0;
+  console.time("map(function)");
+  arr.map(addSum);
+  console.timeEnd("map(function)");
+  console.log(sum);
+}
 
-const objectToArray = Object.keys(object);
-console.log(objectToArray);
-
-//マップメソッドは配列を返す
-const objectToArray2 = Object.keys(object).map((key) => {
-  const value = object[key];
-  value["id"] = key;
-  console.log(value);
-  return value;
-});
-
-console.log(objectToArray2);
-
-const filterResult = objectToArray2.filter((object) => {
-  return object.id === "hoge";
-});
-console.log(filterResult);
-
-const index = objectToArray2.findIndex((object) => {
-  return object.id === "hoge";
-});
-console.log(index, filterResult);
-
-//正規表現のテスト
-const torahack = "torahack";
-const charahack = "charahach";
-const regex = RegExp("tora*");
-
-console.log(regex.test(charahack));
-console.log(/chara*/.test(charahack));
+for (let j = 0; j < 5; j++) {
+  sum = 0;
+  console.time("Typed for");
+  for (let i = 0; i < len; i++) {
+    sum += arr[i];
+  }
+  console.timeEnd("Typed for");
+  console.log(sum);
+}
