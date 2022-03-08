@@ -7,7 +7,35 @@
     <title>Document</title>
   </head>
   <body>
-    <p>hello1</p>
+    <div id="hoge">IDのhogeを指定</div>
+    <!-- <button onclick="getDomElementModule.getId('hoge')">
+      idを取得します！
+    </button> -->
+    <button onclick="getId('hoge')">idを取得します！</button>
+    <div style="margin: 10px"></div>
+
+    <div class="foo">class:foo</div>
+    <div class="foo">class:foo</div>
+    <div class="bar">class:bar</div>
+    <button onclick="getClasses('foo')">classを取得します</button>
+
+    <div style="margin: 16px"></div>
+    <form name="demoForm">
+      <div>
+        <label for="title-id">タイトル</label>
+        <input type="text" name="title" id="title-id" />
+      </div>
+
+      <div>
+        <label for="js">Javascript</label>
+        <input id="js" type="checkbox" name="languages" value="Javascript" />
+        <label for="php">PHP</label>
+        <input id="php" type="checkbox" name="languages" value="PHP" />
+        <label for="ruby">Ruby</label>
+        <input id="ruby" type="checkbox" name="languages" value="Ruby" />
+      </div>
+    </form>
+    <button onclick="submitForm()">フォームの送信</button>
     <script src="index.js"></script>
   </body>
 </html>
