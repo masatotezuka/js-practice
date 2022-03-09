@@ -7,28 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="hoge">IDのhogeを指定</div>
-    <button onclick="setInnerText('hoge')">idを取得します！</button>
+    <div id="count"></div>
+    <button onclick="headerModule.countUp()">カウントアップ</button>
+    <div id="header">Headerです！</div>
+    <button onclick="headerModule.selectMenu()">Headerを選択</button>
 
     <div style="margin: 10px"></div>
 
-    <div id="parent">
-      <div id="child">#parentの子要素だよ</div>
-    </div>
-    <button onclick="setInnerHtml('parent')">HTMLを書き換える</button>
-    <div style="margin: 16px"></div>
-    <button onclick="replaceImageSrc('image')">画像を入れ替える</button>
-    <div>
-      <img
-        id="image"
-        src="./大胸筋.JPG"
-        alt="大胸筋"
-        width="320"
-        height="400"
-      />
-    </div>
-    <div id="list">追加内容</div>
-    <button onclick="appendChildNode('list')">追加</button>
-    <script src="index.js"></script>
+    <div id="footer">Footerです！</div>
+    <button onclick="footerModule.selectMenu('hoge')">Footerを選択</button>
+
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    <script src="async.js"></script>
   </body>
 </html>
