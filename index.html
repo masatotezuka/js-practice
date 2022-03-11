@@ -5,20 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="count"></div>
-    <button onclick="headerModule.countUp()">カウントアップ</button>
-    <div id="header">Headerです！</div>
-    <button onclick="headerModule.selectMenu()">Headerを選択</button>
-
-    <div style="margin: 10px"></div>
-
-    <div id="footer">Footerです！</div>
-    <button onclick="footerModule.selectMenu('hoge')">Footerを選択</button>
-
-    <script src="header.js"></script>
-    <script src="footer.js"></script>
-    <script src="async.js"></script>
+    <main>
+      <div class="input_area">
+        <img id="image-preview" src="./大胸筋.JPG" alt="大胸筋" />
+        <label class="input-button">
+          <input id="image" type="file" />
+        </label>
+      </div>
+    </main>
+    <script src="index.js" type="text/javascript"></script>
   </body>
 </html>
