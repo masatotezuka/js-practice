@@ -1,1 +1,1 @@
-# js-practice
+# JavaScriptの学習ノートです
